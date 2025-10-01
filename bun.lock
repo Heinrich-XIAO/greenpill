@@ -6,6 +6,7 @@
       "dependencies": {
         "@tsci/Heinrich-XIAO.CH32V003F4P6": "^0.1.0",
         "@tsci/seveibar.push-button": "^0.1.0",
+        "@tscircuit/core": "^0.0.753",
       },
       "devDependencies": {
         "@types/react": "^19.1.16",
