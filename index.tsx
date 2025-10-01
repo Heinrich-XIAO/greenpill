@@ -1,12 +1,34 @@
 import { CH32V003F4P6 } from "@tsci/Heinrich-XIAO.CH32V003F4P6"
 import { usePushButton } from "@tsci/seveibar.push-button"
-import type { CommonLayoutProps } from "@tscircuit/props"
+import type { ChipProps } from "@tscircuit/props"
 
-interface Props extends CommonLayoutProps {
+interface Props extends ChipProps {
   name: string
   resetButton?: boolean
   jumper?: boolean
   powerLED?: boolean
+  VDD: string[]
+  VSS: string[]
+  PD4: string[] // pin1
+  PD5: string[] // pin2
+  PD6: string[] // pin3
+  PD7: string[] // pin4
+  PA1: string[] // pin5
+  PA2: string[] // pin6
+  // GND is in pin7
+  PD0: string[] // pin8
+  // VDD is in pin 9
+  PC0: string[] // pin10
+  PC1: string[] // pin11
+  PC2: string[] // pin12
+  PC3: string[] // pin13
+  PC4: string[] // pin14
+  PC5: string[] // pin15
+  PC6: string[] // pin16
+  PC7: string[] // pin17
+  PD1: string[] // pin18
+  PD2: string[] // pin19
+  PD3: string[] // pin20
 }
 
 export default ({
@@ -24,12 +46,28 @@ export default ({
         name="U1"
         pcbRotation={90}
         connections={{
-          VDD: "net.VDD",
-          VSS: "net.GND",
-          pin2: "net.BOARD_TX",
-          pin3: "net.BOARD_RX",
-          pin4: "net.RST",
-          pin18: "net.SWIO",
+          VDD: ["net.VDD", ...props.VDD],
+          VSS: ["net.GND", ...props.VSS],
+          pin2: ["net.BOARD_TX", ...props.PD5],
+          pin3: ["net.BOARD_RX", ...props.PD6],
+          pin4: ["net.RST", ...props.PD7],
+          pin18: ["net.SWIO", ...props.PD1],
+          pin1: props.PD4,
+          pin5: props.PA1,
+          pin6: props.PA2,
+          pin7: props.VSS,
+          pin8: props.PD0,
+          pin9: props.VDD,
+          pin10: props.PC0,
+          pin11: props.PC1,
+          pin12: props.PC2,
+          pin13: props.PC3,
+          pin14: props.PC4,
+          pin15: props.PC5,
+          pin16: props.PC6,
+          pin17: props.PC7,
+          pin19: props.PD2,
+          pin20: props.PD3,
         }}
       />
 
