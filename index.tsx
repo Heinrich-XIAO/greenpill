@@ -6,15 +6,14 @@ interface Props extends CommonLayoutProps {
   name: string
   resetButton?: boolean
   jumper?: boolean
-  crystal?: boolean
+  powerLED?: boolean
 }
-
-// TODO: Add crystal oscillator
 
 export default ({
   name,
   resetButton = true,
   jumper = true,
+  powerLED = true,
   ...props
 }: Props) => {
   const ResetButton = usePushButton("SW1")
@@ -100,6 +99,34 @@ export default ({
             pcbRotation={180}
             pcbX={2}
             pcbY={-5}
+          />
+        </group>
+      )}
+
+      {powerLED && (
+        <group name="power_led">
+          <resistor
+            name="R2"
+            resistance="1k"
+            footprint="0603"
+            connections={{
+              pos: "net.VDD",
+              neg: ".LED_PWR > .pos",
+            }}
+            pcbX={9}
+            pcbY={-3}
+          />
+          <led
+            name="LED_PWR"
+            color="green"
+            footprint="0603"
+            connections={{
+              pos: ".R2 > .neg",
+              neg: "net.GND",
+            }}
+            pcbX={9}
+            pcbY={-6}
+            pcbRotation={180}
           />
         </group>
       )}
