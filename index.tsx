@@ -62,8 +62,6 @@ export default ({
   PD3 = [],
   pcbX = 0,
   pcbY = 0,
-  pcbXJumper = 0,
-  pcbYJumper = 0,
   ...props
 }: Props) => {
   const ResetButton = usePushButton("SW1")
@@ -111,8 +109,8 @@ export default ({
             pin4: "net.BOARD_TX",
             pin5: "net.BOARD_RX",
           }}
-          pcbX={3 + pcbXJumper}
-          pcbY={7 + pcbYJumper}
+          pcbX={3}
+          pcbY={6}
         />
       )}
 
