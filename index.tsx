@@ -7,28 +7,28 @@ interface Props extends ChipProps {
   resetButton?: boolean
   jumper?: boolean
   powerLED?: boolean
-  VDD: string[]
-  VSS: string[]
-  PD4: string[] // pin1
-  PD5: string[] // pin2
-  PD6: string[] // pin3
-  PD7: string[] // pin4
-  PA1: string[] // pin5
-  PA2: string[] // pin6
+  VDD?: string[]
+  VSS?: string[]
+  PD4?: string[] // pin1
+  PD5?: string[] // pin2
+  PD6?: string[] // pin3
+  PD7?: string[] // pin4
+  PA1?: string[] // pin5
+  PA2?: string[] // pin6
   // GND is in pin7
-  PD0: string[] // pin8
+  PD0?: string[] // pin8
   // VDD is in pin 9
-  PC0: string[] // pin10
-  PC1: string[] // pin11
-  PC2: string[] // pin12
-  PC3: string[] // pin13
-  PC4: string[] // pin14
-  PC5: string[] // pin15
-  PC6: string[] // pin16
-  PC7: string[] // pin17
-  PD1: string[] // pin18
-  PD2: string[] // pin19
-  PD3: string[] // pin20
+  PC0?: string[] // pin10
+  PC1?: string[] // pin11
+  PC2?: string[] // pin12
+  PC3?: string[] // pin13
+  PC4?: string[] // pin14
+  PC5?: string[] // pin15
+  PC6?: string[] // pin16
+  PC7?: string[] // pin17
+  PD1?: string[] // pin18
+  PD2?: string[] // pin19
+  PD3?: string[] // pin20
 }
 
 export default ({
