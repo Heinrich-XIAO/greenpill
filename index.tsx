@@ -62,12 +62,14 @@ export default ({
   PD3 = [],
   pcbX = 0,
   pcbY = 0,
+  schX = 0,
+  schY = 0,
   ...props
 }: Props) => {
   const ResetButton = usePushButton("SW1")
 
   return (
-    <group name={name} pcbX={pcbX} pcbY={pcbY}>
+    <group name={name} pcbX={pcbX} pcbY={pcbY} schX={schX} schY={schY}>
       <CH32V003F4P6
         name="U1"
         pcbRotation={90}
