@@ -29,6 +29,8 @@ interface Props extends ChipProps {
   PD1?: string[] // pin18
   PD2?: string[] // pin19
   PD3?: string[] // pin20
+  pcbX?: number
+  pcbY?: number
 }
 
 export default ({
@@ -56,12 +58,14 @@ export default ({
   PD1 = [],
   PD2 = [],
   PD3 = [],
+  pcbX = 0,
+  pcbY = 0,
   ...props
 }: Props) => {
   const ResetButton = usePushButton("SW1")
 
   return (
-    <group name={name}>
+    <group name={name} pcbX={pcbX} pcbY={pcbY}>
       <CH32V003F4P6
         name="U1"
         pcbRotation={90}
