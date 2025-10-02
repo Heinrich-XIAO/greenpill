@@ -182,7 +182,7 @@ export default ({
               pos: ".R2 > .neg",
               neg: "net.GND",
             }}
-            pcbX={9}
+            pcbX={8}
             pcbY={-6}
             pcbRotation={180}
           />
