@@ -61,7 +61,7 @@ export default ({
   const ResetButton = usePushButton("SW1")
 
   return (
-    <board>
+    <group name={name}>
       <CH32V003F4P6
         name="U1"
         pcbRotation={90}
@@ -188,7 +188,7 @@ export default ({
           />
         </group>
       )}
-    </board>
+    </group>
   )
 }
 
