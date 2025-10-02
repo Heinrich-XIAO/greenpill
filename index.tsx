@@ -100,7 +100,7 @@ export default ({
       {/* Jumpers */}
       {jumper && (
         <jumper
-          name="J1"
+          name="J1_greenpill"
           footprint="pinrow5"
           connections={{
             pin1: "net.GND",
@@ -116,7 +116,7 @@ export default ({
 
       {/* Pullup Resistors */}
       <resistor
-        name="R1"
+        name="R1_greenpill"
         footprint="0603"
         resistance={100000}
         connections={{
@@ -130,7 +130,7 @@ export default ({
 
       {/* Decoupling Capacitors */}
       <capacitor
-        name="C1"
+        name="C1_greenpill"
         capacitance="100n"
         connections={{
           anode: "net.VDD",
