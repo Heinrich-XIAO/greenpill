@@ -29,20 +29,10 @@ interface Props extends ChipProps {
   PD1?: string[] // pin18
   PD2?: string[] // pin19
   PD3?: string[] // pin20
-
-  // Position offsets for each sub-block
-  pcbXChip?: number
-  pcbYChip?: number
+  pcbX?: number
+  pcbY?: number
   pcbXJumper?: number
   pcbYJumper?: number
-  pcbXPullup?: number
-  pcbYPullup?: number
-  pcbXDecoupling?: number
-  pcbYDecoupling?: number
-  pcbXReset?: number
-  pcbYReset?: number
-  pcbXLED?: number
-  pcbYLED?: number
 }
 
 export default ({
@@ -70,29 +60,19 @@ export default ({
   PD1 = [],
   PD2 = [],
   PD3 = [],
-  pcbXChip = 0,
-  pcbYChip = 0,
+  pcbX = 0,
+  pcbY = 0,
   pcbXJumper = 0,
   pcbYJumper = 0,
-  pcbXPullup = 0,
-  pcbYPullup = 0,
-  pcbXDecoupling = 0,
-  pcbYDecoupling = 0,
-  pcbXReset = 0,
-  pcbYReset = 0,
-  pcbXLED = 0,
-  pcbYLED = 0,
   ...props
 }: Props) => {
   const ResetButton = usePushButton("SW1")
 
   return (
-    <group name={name}>
+    <group name={name} pcbX={pcbX} pcbY={pcbY}>
       <CH32V003F4P6
         name="U1"
         pcbRotation={90}
-        pcbX={pcbXChip}
-        pcbY={pcbYChip}
         connections={{
           VDD: ["net.VDD", ...VDD],
           VSS: ["net.GND", ...VSS],
@@ -131,8 +111,8 @@ export default ({
             pin4: "net.BOARD_TX",
             pin5: "net.BOARD_RX",
           }}
-          pcbX={pcbXJumper}
-          pcbY={pcbYJumper}
+          pcbX={3 + pcbXJumper}
+          pcbY={7 + pcbYJumper}
         />
       )}
 
@@ -146,8 +126,8 @@ export default ({
           neg: "net.BOARD_RX",
         }}
         pcbRotation={-90}
-        pcbX={pcbXPullup}
-        pcbY={pcbYPullup}
+        pcbX={10}
+        pcbY={2}
       />
 
       {/* Decoupling Capacitors */}
@@ -160,8 +140,8 @@ export default ({
         }}
         footprint="0603"
         pcbRotation={-90}
-        pcbX={pcbXDecoupling}
-        pcbY={pcbYDecoupling}
+        pcbX={7}
+        pcbY={2}
       />
 
       {/* Reset switch */}
@@ -171,8 +151,8 @@ export default ({
             name="SW1"
             pin1="net.GND"
             pin2="net.RST"
-            pcbX={pcbXReset}
-            pcbY={pcbYReset}
+            pcbX={2}
+            pcbY={-10}
           />
           <capacitor
             name="C2"
@@ -183,8 +163,8 @@ export default ({
             }}
             footprint="0603"
             pcbRotation={180}
-            pcbX={pcbXReset}
-            pcbY={pcbYReset + 5}
+            pcbX={2}
+            pcbY={-5}
           />
         </group>
       )}
@@ -199,8 +179,8 @@ export default ({
               pos: "net.VDD",
               neg: ".LED_PWR > .pos",
             }}
-            pcbX={pcbXLED}
-            pcbY={pcbYLED}
+            pcbX={9}
+            pcbY={-3}
           />
           <led
             name="LED_PWR"
@@ -210,8 +190,8 @@ export default ({
               pos: ".R2 > .neg",
               neg: "net.GND",
             }}
-            pcbX={pcbXLED}
-            pcbY={pcbYLED + 3}
+            pcbX={8}
+            pcbY={-6}
             pcbRotation={180}
           />
         </group>
